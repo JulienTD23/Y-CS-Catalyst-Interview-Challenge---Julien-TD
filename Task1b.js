@@ -17,12 +17,29 @@ todoList = [];
  * the "// YOUR CODE HERE" comments.
  */
 
-function __todo(todoString) {
+
+/* DOCUMENTATION: Function #1, addTodo:
+    Takes an unlimited number of arguments using rest parameter todoEntries.
+    Concatenates the current entries of the global variable todoList (an array) 
+    to the value of todoEntries, which is already in the form of an array 
+    due to its nature as a rest parameter.
+*/
+function addTodo(...todoEntries) {
     // YOUR CODE HERE
+    todoList = todoList.concat(todoEntries);
 }
 
-function __todo() {
+/* DOCUMENTATION: Function #2, printTodo:
+    No parameters & takes no arguments.
+    Uses a for loop to traverse through each item in todoList.
+    Prints the currently indexed item in a nice, readable manner similar to Task1a.
+*/
+function printTodo() {
     // YOUR CODE HERE
+    console.log('TODOS:');
+    for(let i = 0; i < todoList.length; i++) {
+        console.log('\n' + (i + 1) + '. ' + todoList[i]);
+    }
 }
 
 /**
@@ -32,6 +49,8 @@ function __todo() {
  */
 function mainTask1b() {
     // YOUR CODE HERE (simply call the functions you implemented above)
+    addTodo("Apply to y/cs!","Pick out my classes", "Have dinner with my suite", "Eat a banana");
+    printTodo();
 }
 
 // This bit of code ensures that a main method exists! If it doesn't, then it throws an error

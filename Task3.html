@@ -1,3 +1,15 @@
+<!-- 
+ Analogy: 
+ HTML is the body of the webpage; the skeletons & the muscles.
+    Provides the framework & structure by creating elements like titles & headers.
+ CSS are the clothes worn by the webpage's body, HTML.
+    Allows for customization of your elements and makes your webpage look presentable.
+ JavaScript is the brain of the webpage. 
+    A scripting language that allows for use of functions within the webpage.
+    You can only use JavaScript functions if you have elements to access from HTML.
+   (this is what .getElementById() does - it grabs an element at its chosen location.)
+Together, they give "life" to the composite organism that is the webpage.
+  -->
 <!DOCTYPE html>
 <!--
     How do I run this script?
@@ -14,14 +26,15 @@
     Most code is already implemented. Only modify the file under the "// YOUR CODE HERE" comments.
     For this file, be sure you understand the sections labeled with "// BE ABLE TO EXPLAIN."
 -->
-<html lang="en">
-<head>
+    
+<html lang="en"> 
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
+    <title>Todo List App</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
             margin: 20px;
         }
         #todo-list {
@@ -44,26 +57,42 @@
     </style>
 </head>
 <body>
-    <h1>Todo List</h1>
+    <h1>Julien's To-do List</h1>
 
-    <input type="text" id="todo-input" placeholder="Enter a new todo">
-    <button id="add-todo-btn">Add Todo</button>
+    <input type="text" id="todo-input" placeholder="Enter a new todo">  <!--Input text box-->
+    <button id="add-todo-btn">Add Todo</button> <!--Button next to the input-->
 
-    <ul id="todo-list"></ul>
+    <ul id="todo-list"></ul> <!--Unordered list-->
 
     <script>
-        const todoList = [];
+        let todoList = [];
         
         // BE ABLE TO EXPLAIN what document.getByElementID() and .addEventListener() does in this context
+    /*  Answer:
+        .getElementbyId() - Given the the id 'add-todo-btn', references & returns the element button,
+                            which in this context is a clickable button marked "Add Todo".
+        .addEventListener() - Listens for when the mouse is clicked, executing the code within the {}.
+
+        In short, when the user's mouse clicks the "Add Todo" button, the code within the {} executes. 
+    */ 
         document.getElementById('add-todo-btn').addEventListener('click', () => {
             
             // BE ABLE TO EXPLAIN what document.getByElementID() does in this context
+        /* Answer: 
+            The variable const todoInput stores [ document.getElementById('todo-input') ].
+            which essentially returns the element referenced by the id 'todo-input'.
+            That id is the text that the user writes to input into the text box 
+            marked "Enter a new todo".
+
+            Therefore, in this context it stores the user input text into the variable todoInput,
+            then trims off the whitespace stored in another variable createdTodo.
+        */ 
             const todoInput = document.getElementById('todo-input');
             const createdTodo = todoInput.value.trim();
             
             // Add non-empty string todos to the todo list
             // YOUR CODE HERE 
-
+            addTodo(createdTodo);
             // reset the input value after add todo is clicked.
             todoInput.value = '';
         });
@@ -72,6 +101,11 @@
         function refreshTodoList() {
             
             // BE ABLE TO EXPLAIN what document.getByElementID() does in this context
+        /* Answer: 
+            Returns the element referenced by the id 'todo-list' and stores it in a variable
+            todoListElement for future interaction.
+            The element returned is an unordered list (ul).
+        */ 
             const todoListElement = document.getElementById('todo-list');
             todoListElement.innerHTML = '';
 
@@ -90,11 +124,13 @@
 
         function deleteTodo(index) {
             // YOUR CODE HERE (recycle your work from former tasks)
+            delete todoList[index];
             refreshTodoList()
         }
 
-        function addTodo(todo) {
+        function addTodo(...todo) {
             // YOUR CODE HERE (recycle your work from former tasks)
+            todoList = todoList.concat(todo);
             refreshTodoList()
         }
     </script>

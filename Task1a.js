@@ -23,6 +23,13 @@ const todoList = [];
  */
 function addAndPrintTodos() {
     // YOUR CODE HERE
+
+    // Appends the todoList array with the three TODOS represented as strings.
+    todoList.push("Apply to y/cs!");
+    todoList.push("Pick out my classes");
+    todoList.push("Have dinner with my suite");
+    // Prints todoList in a nice, readable way using string concatenation & the escape character \n.
+    console.log('TODOS: \n1. ' + todoList[0] + '\n2. ' + todoList[1] + '\n3. ' + todoList[2]);
 }
 
 /**

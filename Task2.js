@@ -23,10 +23,17 @@ todoList = [
     "Have dinner with my suite"
 ];
  */
+
+
+/* DOCUMENTATION:
+   Used the delete operator to delete the todoList entry at [index]. 
+   Slightly tweaked the print statements for a cleaner, more readable output. 
+ */
 function deleteTodo(index) {
-    console.log("Before: " + todoList)
+    console.log("Before: " + todoList.join(', ') + '.');
     // YOUR CODE HERE
-    console.log("After:" + todoList)
+    delete todoList[index];
+    console.log("After:" + (todoList.join(', ')).slice(1) + '.');
 }
 
 /**
